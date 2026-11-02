@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Farmacia Juan Pablo II | Medicamentos en Villa Hidalgo, Jalisco</title>
+    <meta name="description" content="Farmacia Juan Pablo II en Villa Hidalgo, Jalisco: catálogo de medicamentos, pedidos a domicilio, productos por encargo y recogida en farmacia." />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#0056B3" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#10213D" media="(prefers-color-scheme: dark)" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Farmacia JP II" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <style id="expo-reset">
+      html, body { height: 100%; }
+      body { overflow: hidden; margin: 0; background: #F3F7FB; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+      @media (prefers-color-scheme: dark) { body { background: #0B1220; } }
+      #root { display: flex; height: 100%; flex: 1; }
+      ::selection { background: rgba(0, 86, 179, .22); }
+      :focus-visible { outline: 2px solid #0056B3; outline-offset: 2px; }
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <noscript>Farmacia Juan Pablo II · Prolongación Colón #758, Villa Hidalgo, Jalisco · Tel. 495 968 1331. Activa JavaScript para usar la tienda.</noscript>
+    <div id="root"></div>
+    <script>
+      if ('serviceWorker' in navigator && location.hostname !== 'localhost') {
+        window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js').catch(function () {}); });
+      }
+    </script>
+  </body>
+</html>
