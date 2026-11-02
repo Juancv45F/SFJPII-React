@@ -1,25 +1,49 @@
 {
   "expo": {
-    "name": "SFJPII-React",
-    "slug": "SFJPII-React",
+    "name": "Farmacia JP II",
+    "slug": "sfjpii",
+    "scheme": "sfjpii",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "icon": "./assets/images/app-icon.png",
+    "userInterfaceStyle": "automatic",
+    "backgroundColor": "#F3F7FB",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.farmaciajp2.sfjpii"
     },
     "android": {
+      "package": "com.farmaciajp2.sfjpii",
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
-        "monochromeImage": "./assets/android-icon-monochrome.png"
+        "backgroundColor": "#0056B3",
+        "foregroundImage": "./assets/images/app-icon.png"
       },
       "predictiveBackGestureEnabled": false
     },
     "web": {
-      "favicon": "./assets/favicon.png"
-    }
+      "favicon": "./assets/images/favicon.png",
+      "output": "single",
+      "name": "Farmacia Juan Pablo II",
+      "shortName": "Farmacia JP II",
+      "lang": "es",
+      "themeColor": "#0056B3",
+      "backgroundColor": "#F3F7FB"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      "expo-web-browser",
+      "expo-audio",
+      "expo-font",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Permite seleccionar una imagen para el producto.",
+          "cameraPermission": false,
+          "microphonePermission": false
+        }
+      ],
+      "expo-asset"
+    ]
   }
 }

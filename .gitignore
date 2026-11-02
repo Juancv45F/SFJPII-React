@@ -30,8 +30,16 @@ yarn-error.*
 .DS_Store
 *.pem
 
-# local env files
-.env*.local
+# local env files (nunca subir valores reales; usar .env.example)
+.env
+.env.*
+!.env.example
+
+# Vercel
+.vercel/
+
+# logs
+*.log
 
 # typescript
 *.tsbuildinfo
