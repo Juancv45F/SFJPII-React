@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Regresando a la app</title>
+<style>body{font-family:-apple-system,Roboto,sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;background:#E3F2FD;color:#0056B3;text-align:center}</style>
+</head>
+<body>
+<p id="msg">Regresando a Farmacia JP II…</p>
+<script>
+// Puente para Google OAuth: Google solo acepta redirect HTTPS; esta página reenvía
+// el id_token a la app (exp:// en Expo Go o sfjpii:// en builds) usando la URL guardada en `state`.
+(function () {
+  var hash = new URLSearchParams(location.hash.slice(1));
+  var query = new URLSearchParams(location.search);
+  var state = hash.get('state') || query.get('state') || '';
+  var target = '';
+  try {
+    var b64 = state.replace(/-/g, '+').replace(/_/g, '/');
+    while (b64.length % 4) b64 += '=';
+    target = JSON.parse(decodeURIComponent(escape(atob(b64)))).r || '';
+  } catch (e) { target = ''; }
+  if (!/^(exp|exps|sfjpii):\/\//i.test(target)) {
+    document.getElementById('msg').textContent = 'Enlace de retorno no válido.';
+    return;
+  }
+  var out = new URLSearchParams();
+  ['id_token', 'state', 'error', 'error_description'].forEach(function (k) {
+    var v = hash.get(k) || query.get(k);
+    if (v) out.set(k, v);
+  });
+  location.replace(target.split('#')[0] + '#' + out.toString());
+})();
+</script>
+</body>
+</html>
